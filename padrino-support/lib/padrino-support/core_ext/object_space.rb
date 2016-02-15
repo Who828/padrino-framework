@@ -39,11 +39,7 @@ module ObjectSpace
     #   ObjectSpace.new_classes(snapshot)
     #
     def new_classes(snapshot)
-      self.classes do |klass|
-        if !snapshot.include?(klass)
-          klass
-        end
-      end
+      self.classes.difference(snapshot)
     end
   end
 end
